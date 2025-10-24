@@ -2,29 +2,6 @@ import smtplib
 import requests
 from  datetime import datetime
 
-# MY_LONGITUDE=87.31197425
-# MY_LATITUDE=23.0478115
-# response=requests.get("http://api.open-notify.org/iss-now.json")
-# response.raise_for_status()
-# data=response.json()
-# latitude=data["iss_position"]["latitude"]
-# longitude=data["iss_position"]["longitude"]
-# iss_position=(latitude,longitude)
-# print(iss_position)
-# parameters={
-#     "lat": MY_LATITUDE,
-#     "lng":MY_LONGITUDE,
-#     "formatted":0
-# }
-# response=requests.get("https://api.sunrise-sunset.org/json",params=parameters)
-# response.raise_for_status()
-# data=response.json()
-# sunrise=data["results"]["sunrise"].split("T")[1].split(":")[0]
-# sunset=data["results"]["sunset"].split("T")[1].split(":")[0]
-# print(sunrise)
-# print(sunset)
-# time_now=datetime.now()
-# print(time_now.hour)
 
 import smtplib
 from datetime import datetime
@@ -33,7 +10,7 @@ import time
 MY_LONGITUDE=87.31197425
 MY_LATITUDE=23.0478115
 my_email = "prithwishpatra05@gmail.com"
-password = "jmqjjqzrpheixcaj"
+password = "[YOUR PASSWORD HERE]"
 def is_iss_overhead():
     iss_pos=requests.get("http://api.open-notify.org/iss-now.json")
     iss_pos.raise_for_status()
@@ -64,6 +41,7 @@ while True:
         connection.login(my_email,password)
         connection.sendmail(
             from_addr=my_email,
-            to_addrs="padmapatra1986@gmail.com",
+            to_addrs="[PUT THE RECEIVER'S EMAIL]",
             msg="Subject:LOOK UP\n\n The ISS is above you in the sky"
+
         )
